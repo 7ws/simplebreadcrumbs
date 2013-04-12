@@ -7,8 +7,20 @@ by Evan Myller (emyller＠7ws.co)
 +function ($) {
 'use strict';
 
-// hide all subitems by default
-$('ul.simplebreadcrumb ul').hide();
+function reset(item) {
+	if (!item)
+		item = $('ul.simplebreadcrumb');
+
+	// hide all subitems
+	$('ul', item).hide();
+
+	// unset items' 'selected' state
+	$('li', item).show().removeClass('selected');
+
+	// reset style values
+	$('ul,li', item).css({width: 'auto'});
+}
+
 
 //add a class to identify dead end entries
 $('ul.simplebreadcrumb li').addClass('_has_no_subitems');
@@ -39,9 +51,15 @@ $('ul.simplebreadcrumb li:has(ul)')  // items with submenus
 				done: function () {
 					item.siblings().animate(
 						{width: 'toggle'},
-						{queue: false})
+						{queue: false}
+					);
+
+					!item.is('.selected') && reset(item);
 				}
 			});
 	});
+
+// reset items by default
+reset();
 
 }(jQuery);
