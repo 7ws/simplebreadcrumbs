@@ -26,19 +26,18 @@ $('ul.simplebreadcrumb li:has(ul)')  // items with submenus
 		if (!(handle[0] === e.target || $.contains(handle, e.target)))
 			return;
 
-		// OPEN: hide its siblings show its subitems
-		if (!item.is('.selected')) {
-			item.siblings().hide();
-			item.children('ul').show();
-		}
-
-		// CLOSE: hide its subitems and show its siblings
-		else {
-			item.siblings().show();
-			item.children('ul').hide();
-		}
-
 		item.toggleClass('selected');
+		item.children('ul').animate(
+			{width: 'toggle'},
+			{
+				queue: false,
+				duration: 250,
+				done: function () {
+					item.siblings().animate(
+						{width: 'toggle'},
+						{queue: false})
+				}
+			});
 	});
 
 

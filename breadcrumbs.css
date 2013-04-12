@@ -12,7 +12,9 @@ ul.simplebreadcrumb {
 	ul.simplebreadcrumb ul,
 	ul.simplebreadcrumb li {
 		display: inline-block;
+		overflow: hidden;
 		padding: 0;
+		white-space: nowrap;
 	}
 
 	ul.simplebreadcrumb a {
