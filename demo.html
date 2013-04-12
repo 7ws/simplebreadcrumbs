@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8"/>
+	<title>Simple Breadcrumbs demo</title>
+
+	<link rel="stylesheet" type="text/css" href="breadcrumbs.css">
+
+	<!-- style related scripts, should be at <head> -->
+	<script type="text/javascript" src="lib/prefixfree.min.js"></script>
+</head>
+<body>
+	<ul class="simplebreadcrumb">
+		<li><a href="">Item 1</a>
+			<ul>
+				<li><a href="">Subitem 1</a>
+					<ul>
+						<li><a href="">Subitem 1</a></li>
+						<li><a href="">Subitem 2</a></li>
+					</ul>
+				</li>
+				<li><a href="">Subitem 2</a>
+					<ul>
+						<li><a href="">Subitem 1</a></li>
+						<li><a href="">Subitem 2</a></li>
+						<li><a href="">Subitem 3</a></li>
+					</ul>
+				</li>
+				<li><a href="">Subitem 3</a></li>
+				<li><a href="">Subitem 4</a></li>
+			</ul>
+		</li>
+		<li><a href="">Item 2</a>
+			<ul>
+				<li><a href="">Subitem 1</a>
+					<ul>
+						<li><a href="">Subitem 1</a></li>
+						<li><a href="">Subitem 2</a></li>
+						<li><a href="">Subitem 3</a></li>
+						<li><a href="">Subitem 4</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="breadcrumbs.js"></script>
+</body>
+</html>

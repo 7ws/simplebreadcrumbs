@@ -1,0 +1,42 @@
+/* Simple Breadcrumbs
+licensed under MIT.
+
+by Evan Myller (emyller＠7ws.co)
+*/
+
+ul.simplebreadcrumb {
+	font-family: sans-serif;
+	padding: 0;
+}
+
+	ul.simplebreadcrumb ul,
+	ul.simplebreadcrumb li {
+		display: inline-block;
+		padding: 0;
+	}
+
+	ul.simplebreadcrumb a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+/* arrow */
+ul.simplebreadcrumb li._has_subitems > :first-child {
+	padding-right: 1em;
+	position: relative;
+}
+
+ul.simplebreadcrumb li._has_subitems > :first-child:before {
+	content: '›';
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	width: 1em;
+	text-align: center;
+	transform: rotate(90deg);
+	transition: 250ms;
+}
+
+ul.simplebreadcrumb li._has_subitems.selected > :first-child:before {
+	transform: rotate(0);
+}
