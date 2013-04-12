@@ -10,9 +10,13 @@ by Evan Myller (emyller＠7ws.co)
 // hide all subitems by default
 $('ul.simplebreadcrumb ul').hide();
 
+//add a class to identify dead end entries
+$('ul.simplebreadcrumb li').addClass('_has_no_subitems');
+
 $('ul.simplebreadcrumb li:has(ul)')  // items with submenus
 
 	// add a class to identify them
+	.removeClass('_has_no_subitems')
 	.addClass('_has_subitems')
 
 	.on('click', function (e) {
@@ -39,8 +43,5 @@ $('ul.simplebreadcrumb li:has(ul)')  // items with submenus
 				}
 			});
 	});
-
-
-
 
 }(jQuery);

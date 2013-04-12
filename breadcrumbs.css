@@ -42,3 +42,8 @@ ul.simplebreadcrumb li._has_subitems > :first-child:before {
 ul.simplebreadcrumb li._has_subitems.selected > :first-child:before {
 	transform: rotate(0);
 }
+
+/* items with ends only */
+ul.simplebreadcrumb li._has_no_subitems * {
+	text-decoration: underline;
+}
