@@ -18,7 +18,7 @@ function reset(item) {
 	$('li', item).show().removeClass('selected');
 
 	// reset style values
-	$('ul,li', item).css({width: 'auto'});
+	$('ul,li', item).css({height: 'auto', width: 'auto'});
 }
 
 
@@ -43,14 +43,20 @@ $('ul.simplebreadcrumb li:has(ul)')  // items with submenus
 			return;
 
 		item.toggleClass('selected');
+
+		// determine which axis do the folding based on subitems' display
+		var folding = !$('li', item).css('display').indexOf('inline')
+			? {width: 'toggle'}
+			: {height: 'toggle'};
+
 		item.children('ul').animate(
-			{width: 'toggle'},
+			folding,
 			{
 				queue: false,
 				duration: 250,
 				done: function () {
 					item.siblings().animate(
-						{width: 'toggle'},
+						folding,
 						{queue: false}
 					);
 
