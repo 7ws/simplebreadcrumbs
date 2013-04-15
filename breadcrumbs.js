@@ -15,7 +15,7 @@ function reset(item) {
 	$('ul', item).hide();
 
 	// unset items' 'selected' state
-	$('li', item).show().removeClass('selected');
+	$('li', item).show().removeClass('selected current');
 
 	// reset style values
 	$('ul,li', item).css({height: 'auto', width: 'auto'});
@@ -42,7 +42,18 @@ $('ul.simplebreadcrumb li:has(ul)')  // items with submenus
 		if (!(handle[0] === e.target || $.contains(handle, e.target)))
 			return;
 
+		// toggle 'selected' state
 		item.toggleClass('selected');
+
+		// toggle 'current' state
+		if (item.is('.selected')) {
+			item.parents('li').removeClass('current');
+			item.addClass('current');
+		}
+		else {
+			item.parent().closest('li').addClass('current');
+			item.removeClass('current');
+		}
 
 		// determine which axis do the folding based on subitems' display
 		var folding = !$('li', item).css('display').indexOf('inline')
